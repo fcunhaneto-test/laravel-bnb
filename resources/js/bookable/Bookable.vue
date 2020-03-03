@@ -6,8 +6,7 @@
             </div>
         </div>
         <div class="row align-content-lg-center" v-else>
-            <div class="col-lg-2 col-md-2"></div>
-            <article class="col-lg-8 col-md-8 col-sm-12">
+            <article class="col-8">
                 <div class="card h-100">
                     <div class="card-header text-dark">
                         <h5 class="card-title mt-0 mb-0">
@@ -19,13 +18,20 @@
                     </div>
                 </div>
             </article>
+            <div class="col-4">
+                <availability></availability>
+            </div>
         </div>
     </section>
 </template>
 
 <script>
+    import Availability from "./Availability";
     export default {
         name: "Bookable",
+        components: {
+            Availability
+        },
         data() {
             return {
                 loading: true,
