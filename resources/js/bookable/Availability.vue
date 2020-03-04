@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="col-12 text-center">
-            <button class="btn btn-primary btn-block btn-sm text-uppercase" @click="checkDates">Check</button>
+            <button class="btn btn-primary btn-block btn-sm text-uppercase" @click="check">Check</button>
         </div>
     </section>
 </template>
@@ -31,7 +31,7 @@
             }
         },
         methods: {
-            checkDates() {
+            check() {
                 alert(`Check Dates from ${this.from} to ${this.to}`)
             }
 

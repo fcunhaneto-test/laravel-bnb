@@ -32,7 +32,7 @@
         created() {
             this.loading = true;
             axios.get('api/bookables').then(resp => {
-                this.bookables = resp.data
+                this.bookables = resp.data.data
             });
             this.loading = false;
         }

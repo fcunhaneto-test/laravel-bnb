@@ -18,8 +18,8 @@ class BookingsTableSeeder extends Seeder
             $bookings = collect([$booking]);
 
             for ($i = 0; $i < random_int(1, 20); $i++) {
-                $from = (clone $booking->to)->addDays(random_int(1, 14));
-                $to = (clone $from)->addDays(random_int(0, 14));
+                $from = (clone $booking->to)->addDays(random_int(0, 14));
+                $to = (clone $from)->addDays(random_int(1, 14));
 
                 $booking = Booking::make([
                     'from' => $from,

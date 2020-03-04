@@ -40,7 +40,7 @@
         },
         created() {
             this.loading = true;
-            axios.get(`/api/bookables/${this.$route.params.id}`).then(resp => this.bookable = resp.data);
+            axios.get(`/api/bookables/${this.$route.params.id}`).then(resp => this.bookable = resp.data.data);
             this.loading = false
         }
     }
