@@ -17,7 +17,7 @@ class CreateReviewsTable extends Migration
             $table->uuid('id')->primary();
             $table->unsignedBigInteger('bookable_id')->index();
             $table->unsignedBigInteger('booking_id')->index()->nullable();
-            $table->unsignedTinyInteger('rating');
+            $table->unsignedSmallInteger('rating');
             $table->text('content');
             $table->timestamps();
 

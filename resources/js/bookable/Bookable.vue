@@ -7,10 +7,10 @@
         </div>
         <div class="row align-content-lg-center" v-else>
             <div class="col-md-8  mt-2">
-                <section class="card h-100 border-info">
+                <section class="card h-100 border-info" v-if="bookable">
                     <div class="card-header text-dark">
                         <h2 class="card-title font-weight-bold mt-0 mb-0">
-                            {{ bookable.title}}
+                            {{ bookable.title }}
                         </h2>
                     </div>
                     <div class="card-body">
@@ -19,27 +19,18 @@
                 </section>
             </div>
             <div class="col-md-4 mt-2">
-                <availability></availability>
+                <availability
+                    :bookable-id="this.$route.params.id"
+                />
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-md-8">
                 <h5 class="">Review List</h5>
                 <hr class="border-dark">
-                <div class="row mt-3 pb-3 border-bottom"  v-for="i in 3" :key="i">
-                    <div class="col-6">
-                        Francisco Cunha
-                    </div>
-                    <div class="col-6">
-                        STAR RATING
-                    </div>
-                    <div class="col-md-12">
-                        Add 5 minutes ago
-                    </div>
-                    <div class="col-md-12 pt-3">
-                        Content of review
-                    </div>
-                </div>
+                <review-list
+                    :bookable-id="this.$route.params.id"
+                />
             </div>
         </div>
     </section>
@@ -58,12 +49,14 @@
         data() {
             return {
                 loading: true,
-                bookable: null
+                bookable: null,
+                reviews: null
             }
         },
         created() {
             this.loading = true;
-            axios.get(`/api/bookables/${this.$route.params.id}`).then(resp => this.bookable = resp.data.data);
+            axios.get(`/api/bookables/${this.$route.params.id}`).then(response => this.bookable = response.data.data);
+            axios.get(`/api/bookables/${this.$route.params.id}/reviews`).then(response => this.reviews = response.data.data);
             this.loading = false
         }
     }
