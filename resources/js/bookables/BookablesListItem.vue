@@ -3,7 +3,7 @@
         <div class="card-header text-dark">
             <h5 class="card-title mt-0 mb-0">
                 <router-link :to="{name: 'bookable', params: { id: bookable.id }}">
-                    {{ bookable.title}}
+                        {{ bookable.title }}
                 </router-link>
             </h5>
         </div>

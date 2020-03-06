@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="row d-inline-flex" v-else>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-3" v-for="(bookable, id) in bookables" :ket="id">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-3" v-for="(bookable, id) in bookables" :key="id">
                 <bookables-list-item
                     :bookable="bookable"
                 ></bookables-list-item>
@@ -23,7 +23,7 @@
         components: {
             BookablesListItem
         },
-        data() {
+        data: function () {
             return {
                 loading: true,
                 bookables: []
